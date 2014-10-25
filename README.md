@@ -40,11 +40,11 @@ dat
 
 ```
   id x y z
-1  A 0 0 0
-2  B 1 0 0
-3  C 1 0 0
-4  D 1 1 0
-5  E 0 1 1
+1  A 1 1 0
+2  B 0 1 0
+3  C 0 1 0
+4  D 1 0 0
+5  E 0 0 1
 ```
 
 ### gather in Action
@@ -56,16 +56,16 @@ dat %>% gather(item, scores, -c(id))
 
 ```
    id item scores
-1   A    x      0
-2   B    x      1
-3   C    x      1
+1   A    x      1
+2   B    x      0
+3   C    x      0
 4   D    x      1
 5   E    x      0
-6   A    y      0
-7   B    y      0
-8   C    y      0
-9   D    y      1
-10  E    y      1
+6   A    y      1
+7   B    y      1
+8   C    y      1
+9   D    y      0
+10  E    y      0
 11  A    z      0
 12  B    z      0
 13  C    z      0
@@ -83,11 +83,11 @@ dat %>% gather(item, scores, -c(id)) %>%
 
 ```
   id x y z
-1  A 0 0 0
-2  B 1 0 0
-3  C 1 0 0
-4  D 1 1 0
-5  E 0 1 1
+1  A 1 1 0
+2  B 0 1 0
+3  C 0 1 0
+4  D 1 0 0
+5  E 0 0 1
 ```
 
 ---
@@ -103,16 +103,16 @@ dat %>% gather(item, scores, x:z)
 
 ```
    id item scores
-1   A    x      0
-2   B    x      1
-3   C    x      1
+1   A    x      1
+2   B    x      0
+3   C    x      0
 4   D    x      1
 5   E    x      0
-6   A    y      0
-7   B    y      0
-8   C    y      0
-9   D    y      1
-10  E    y      1
+6   A    y      1
+7   B    y      1
+8   C    y      1
+9   D    y      0
+10  E    y      0
 11  A    z      0
 12  B    z      0
 13  C    z      0
@@ -126,16 +126,16 @@ dat %>% gather(item, scores, x, y, z)
 
 ```
    id item scores
-1   A    x      0
-2   B    x      1
-3   C    x      1
+1   A    x      1
+2   B    x      0
+3   C    x      0
 4   D    x      1
 5   E    x      0
-6   A    y      0
-7   B    y      0
-8   C    y      0
-9   D    y      1
-10  E    y      1
+6   A    y      1
+7   B    y      1
+8   C    y      1
+9   D    y      0
+10  E    y      0
 11  A    z      0
 12  B    z      0
 13  C    z      0
@@ -148,27 +148,13 @@ dat %>% gather(item, scores, x, y, z)
 
 ```r
 dat %>% gather(item, scores, -c(id)) %>%
-    spread(item, scores)
-```
-
-```
-  id x y z
-1  A 0 0 0
-2  B 1 0 0
-3  C 1 0 0
-4  D 1 1 0
-5  E 0 1 1
-```
-
-```r
-dat %>% gather(item, scores, -c(id)) %>%
     spread(id, scores)
 ```
 
 ```
   item A B C D E
-1    x 0 1 1 1 0
-2    y 0 0 0 1 1
+1    x 1 0 0 1 0
+2    y 1 1 1 0 0
 3    z 0 0 0 0 1
 ```
 

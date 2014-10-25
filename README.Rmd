@@ -68,9 +68,6 @@ dat %>% gather(item, scores, x, y, z)
 
 ```{r}
 dat %>% gather(item, scores, -c(id)) %>%
-    spread(item, scores)
-
-dat %>% gather(item, scores, -c(id)) %>%
     spread(id, scores)
 ```
 
