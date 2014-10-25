@@ -12,7 +12,7 @@ opts_chunk$set(comment=NA, tidy=FALSE, message = FALSE, warnings = FALSE)
 
 List of **tidyr** functions and the **reshape2** functions they're related to:
 
-reshape2 Function    | tidyr Function(s) | Special Powers
+reshape2 Function    | tidyr Function | Special Powers
 ---------------------|-------------------|----------------------------
 `melt`               |  `gather`         | long format\*
 `dcast`              |  `spread`         | wide format\*

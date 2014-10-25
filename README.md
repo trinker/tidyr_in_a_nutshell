@@ -9,7 +9,7 @@ This is a minimal guide, mostly for myself, to remind me of the most import tidy
 
 List of **tidyr** functions and the **reshape2** functions they're related to:
 
-reshape2 Function    | tidyr Function(s) | Special Powers
+reshape2 Function    | tidyr Function | Special Powers
 ---------------------|-------------------|----------------------------
 `melt`               |  `gather`         | long format\*
 `dcast`              |  `spread`         | wide format\*
@@ -41,10 +41,10 @@ dat
 ```
   id x y z
 1  A 0 0 0
-2  B 1 1 0
+2  B 1 0 0
 3  C 1 0 0
 4  D 1 1 0
-5  E 1 0 1
+5  E 0 1 1
 ```
 
 ### gather in Action
@@ -60,12 +60,12 @@ dat %>% gather(item, scores, -c(id))
 2   B    x      1
 3   C    x      1
 4   D    x      1
-5   E    x      1
+5   E    x      0
 6   A    y      0
-7   B    y      1
+7   B    y      0
 8   C    y      0
 9   D    y      1
-10  E    y      0
+10  E    y      1
 11  A    z      0
 12  B    z      0
 13  C    z      0
@@ -84,10 +84,10 @@ dat %>% gather(item, scores, -c(id)) %>%
 ```
   id x y z
 1  A 0 0 0
-2  B 1 1 0
+2  B 1 0 0
 3  C 1 0 0
 4  D 1 1 0
-5  E 1 0 1
+5  E 0 1 1
 ```
 
 ---
@@ -107,12 +107,12 @@ dat %>% gather(item, scores, x:z)
 2   B    x      1
 3   C    x      1
 4   D    x      1
-5   E    x      1
+5   E    x      0
 6   A    y      0
-7   B    y      1
+7   B    y      0
 8   C    y      0
 9   D    y      1
-10  E    y      0
+10  E    y      1
 11  A    z      0
 12  B    z      0
 13  C    z      0
@@ -130,12 +130,12 @@ dat %>% gather(item, scores, x, y, z)
 2   B    x      1
 3   C    x      1
 4   D    x      1
-5   E    x      1
+5   E    x      0
 6   A    y      0
-7   B    y      1
+7   B    y      0
 8   C    y      0
 9   D    y      1
-10  E    y      0
+10  E    y      1
 11  A    z      0
 12  B    z      0
 13  C    z      0
@@ -154,10 +154,10 @@ dat %>% gather(item, scores, -c(id)) %>%
 ```
   id x y z
 1  A 0 0 0
-2  B 1 1 0
+2  B 1 0 0
 3  C 1 0 0
 4  D 1 1 0
-5  E 1 0 1
+5  E 0 1 1
 ```
 
 ```r
@@ -167,8 +167,8 @@ dat %>% gather(item, scores, -c(id)) %>%
 
 ```
   item A B C D E
-1    x 0 1 1 1 1
-2    y 0 1 0 1 0
+1    x 0 1 1 1 0
+2    y 0 0 0 1 1
 3    z 0 0 0 0 1
 ```
 
