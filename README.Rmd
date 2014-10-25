@@ -1,0 +1,80 @@
+tidyr In a Nutshell
+===
+
+This is a minimal guide, mostly for myself, to remind me of the most import tidyr functions and how they relate to **reshape2** functions that I'm familiar with. Also checkout [dplyr In a Nutshell](https://github.com/trinker/dplyr_in_a_nutshell)
+
+```{r setup, include=FALSE, echo=FALSE}
+library(knitr)
+opts_chunk$set(comment=NA, tidy=FALSE, message = FALSE, warnings = FALSE)
+```
+
+# 2  Main Functions
+
+List of dplyr functions and the base functions they're related to:
+
+reshape2 Function    | tidyr Function(s) | Special Powers
+---------------------|-------------------|----------------------------
+`melt`               |  `gather`         | long format\*
+`dcast`              |  `spread`         | wide format\*
+
+
+\*[Hadley notes](http://vita.had.co.nz/papers/tidy-data.pdf) these terms are imprecise but good enough for my little noodle
+
+## Arguments (when chaining)
+
+![](tidyr.png)
+
+
+# Demos
+### Some Data
+```{r}
+library(tidyr); library(dplyr)
+
+dat <- data.frame(
+   id = LETTERS[1:5],
+   x = sample(0:1, 5, TRUE),
+   y = sample(0:1, 5, TRUE),
+   z = sample(0:1, 5, TRUE)
+)
+
+dat
+```
+
+### gather in Action
+
+```{r}
+dat %>% gather(item, scores, -c(id))
+```
+
+### spread it Back Out
+
+```{r}
+dat %>% gather(item, scores, -c(id)) %>%
+    spread(item, scores)
+```
+
+---
+
+# Additional Demos
+
+### gather
+
+```{r}
+dat %>% gather(item, scores, x:z) 
+dat %>% gather(item, scores, x, y, z) 
+```
+
+### spread
+
+```{r}
+dat %>% gather(item, scores, -c(id)) %>%
+    spread(item, scores)
+
+dat %>% gather(item, scores, -c(id)) %>%
+    spread(id, scores)
+```
+
+
+```{r, echo=FALSE, eval=FALSE}
+## 
+```
