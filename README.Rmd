@@ -10,7 +10,7 @@ opts_chunk$set(comment=NA, tidy=FALSE, message = FALSE, warnings = FALSE)
 
 # 2  Main Functions
 
-List of dplyr functions and the base functions they're related to:
+List of **tidyr** functions and the **reshape2** functions they're related to:
 
 reshape2 Function    | tidyr Function(s) | Special Powers
 ---------------------|-------------------|----------------------------
