@@ -1,7 +1,7 @@
 tidyr In a Nutshell
 ===
 
-This is a minimal guide, mostly for myself, to remind me of the most import tidyr functions and how they relate to **reshape2** functions that I'm familiar with. Also checkout [dplyr In a Nutshell](https://github.com/trinker/dplyr_in_a_nutshell)
+This is a minimal guide, mostly for myself, to remind me of the most import tidyr functions and how they relate to **reshape2** functions that I'm familiar with. Also checkout [dplyr In a Nutshell](https://github.com/trinker/dplyr_in_a_nutshell).
 
 ```{r setup, include=FALSE, echo=FALSE}
 library(knitr)
@@ -76,5 +76,5 @@ dat %>% gather(item, scores, -c(id)) %>%
 
 
 ```{r, echo=FALSE, eval=FALSE}
-## 
+## knitr::knit2html("README.Rmd")
 ```
